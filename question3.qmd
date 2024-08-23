@@ -1,8 +1,6 @@
 ---
-title: "question3"
+title: "Research Question 3"
 ---
-
-# **Research Question 3**
 
 ## Overview
 

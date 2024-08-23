@@ -17,17 +17,17 @@
         "Source": "Source",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "cursorPosition": "14,0",
+        "cursorPosition": "0,0",
         "scrollLine": "0",
-        "rmdVisualModeLocation": "730:280",
+        "rmdVisualModeLocation": "33:0",
         "ignored_words": "Multinomial,multinomial,heatmap,Heatmap,foundational,analytical\n"
     },
     "folds": "",
-    "lastKnownWriteTime": 1724447776,
+    "lastKnownWriteTime": 1724447926,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1724447776365,
+    "last_content_update": 1724447926773,
     "read_only": false,
     "read_only_alternatives": []
 }
