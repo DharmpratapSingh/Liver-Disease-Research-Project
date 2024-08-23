@@ -12,7 +12,7 @@ This research investigates how liver enzymes, which are important for diagnosing
 
 ## Data Preparation and Analysis
 
-#### Data Preparation:
+#### **Data Preparation:**
 
 -   We used data from the `hcvdat.csv` data-set focusing on age and liver enzymes (ALP, ALT, AST).
 -   We removed missing values and grouped data into age categories ('Young', 'Middle-aged', 'Senior') to analyze trends based on age.
@@ -39,21 +39,33 @@ We made a bar plot to show average liver enzyme levels by age group, which helps
 
 **Residuals vs. Fitted Values Plot:** Checked to ensure our model fits well. The plot showed residuals spread randomly, suggesting the model was appropriate without any clear misfit patterns.
 
-#### Approaches Considered and Rejected
+#### **Approaches Considered and Rejected**
 
-We initially considered several methods: - **Non-linear Models:** These were tested for capturing complex relationships but not used due to the risk of making the model too complex. - **Polynomial Regression:** Was also considered to deal with curves in the data but was not used to keep the model simple and easy to interpret.
+We initially considered several methods:
 
-#### Real-World Application
+-   **Non-linear Models:** These were tested for capturing complex relationships but not used due to the risk of making the model too complex.
 
-The findings are useful for: - **Early Diagnosis:** Better understanding of how liver enzymes change with age helps in spotting liver issues early. - **Personalizing Treatment:** Insights from the data can guide tailored treatments based on how enzyme levels change with age.
+-   **Polynomial Regression:** Was also considered to deal with curves in the data but was not used to keep the model simple and easy to interpret.
+
+#### **Real-World Application**
+
+The findings are useful for:
+
+-   **Early Diagnosis:** Better understanding of how liver enzymes change with age helps in spotting liver issues early.
+
+-   **Personalizing Treatment:** Insights from the data can guide tailored treatments based on how enzyme levels change with age.
 
 ## Conclusion
 
 This study effectively used a Random Forest model to clarify how age impacts liver enzyme levels in hepatitis C patients compared to healthy individuals. It provided useful insights that could improve how liver conditions are managed.
 
-#### Future Directions
+#### **Future Directions**
 
-Further research could improve these findings by: - **Including more factors** like broader demographic details and other health indicators to enhance predictions. - **Conducting longitudinal studies** to observe changes in enzyme levels over time, giving more insight into how liver diseases progress.
+Further research could improve these findings by:
+
+-   **Including more factors** like broader demographic details and other health indicators to enhance predictions.
+
+-   **Conducting longitudinal studies** to observe changes in enzyme levels over time, giving more insight into how liver diseases progress.
 
 This webpage offers a detailed look at the research conducted, the methods used, the insights gained, and their practical implications, aiming to improve the management of liver health across different age groups.
 
@@ -61,9 +73,7 @@ This webpage offers a detailed look at the research conducted, the methods used,
 
 1.  **UCI Machine Learning Repository: Hepatitis C Virus (HCV) Dataset**. Available at: <https://archive.ics.uci.edu/dataset/571/hcv+data>. This link provides access to the dataset used in your analysis, essential for anyone looking to replicate or extend your research findings.
 
-2.  **Professor’s Notes on ANOVA**:
-
-    -   *Unit 3 and Unit 4 Notes*: These documents are direct inputs from educational materials provided by your professor, covering detailed theoretical and practical applications of ANOVA, which underpin your analytical methodologies.
+2.  **Professor’s Notes on ANOVA**:*Unit 3 and Unit 4 Notes*: These documents are direct inputs from educational materials provided by your professor, covering detailed theoretical and practical applications of ANOVA, which underpin your analytical methodologies.
 
 3.  **Box, G. E. P., Hunter, J. S., & Hunter, W. G.** (2005). *Statistics for Experimenters: Design, Innovation, and Discovery* (2nd Edition). Wiley. A foundational text on the principles of experimental design and analysis crucial for interpreting ANOVA results.
 

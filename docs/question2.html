@@ -124,7 +124,22 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#research-question-2" id="toc-research-question-2" class="nav-link active" data-scroll-target="#research-question-2"><strong>Research Question 2</strong></a>
+  <ul class="collapse">
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#data-preparation-and-analysis" id="toc-data-preparation-and-analysis" class="nav-link" data-scroll-target="#data-preparation-and-analysis">Data Preparation and Analysis</a></li>
+  <li><a href="#visualizations" id="toc-visualizations" class="nav-link" data-scroll-target="#visualizations"><strong>Visualizations:</strong></a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a>
+  <ul class="collapse">
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><strong>References</strong></a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -148,8 +163,69 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="research-question-2" class="level1">
+<h1><strong>Research Question 2</strong></h1>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p><strong>Research Question 2:</strong> Does gender influence biochemical responses in hepatitis C patients?</p>
+<p>This question explores how biochemical markers, specifically Albumin and Bilirubin, respond differently in male and female hepatitis C patients. These markers are crucial for assessing liver health, and understanding their behavior can aid in more personalized healthcare.</p>
+</section>
+<section id="data-preparation-and-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="data-preparation-and-analysis">Data Preparation and Analysis</h2>
+<section id="data-preparation" class="level4">
+<h4 class="anchored" data-anchor-id="data-preparation"><strong>Data Preparation:</strong></h4>
+<p>We started by refining our dataset to include only relevant variables such as gender, Albumin, and Bilirubin levels, alongside age and hepatitis C status. We rigorously removed records with missing values to ensure the accuracy of our analysis.</p>
+</section>
+<section id="statistical-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="statistical-analysis"><strong>Statistical Analysis:</strong></h4>
+<ul>
+<li><p><strong>ANOVA and Multiple Regression Models:</strong> To assess the influence of gender on liver enzyme levels, we utilized these statistical methods. These models helped us quantify the differences and also explore potential interactions with age, which might modify how gender influences these biochemical markers.</p></li>
+<li><p><strong>Interaction Effects:</strong> We specifically looked for interaction effects between gender and other variables like age to understand if younger or older men and women showed different biochemical responses.</p></li>
+</ul>
+</section>
+</section>
+<section id="visualizations" class="level2">
+<h2 class="anchored" data-anchor-id="visualizations"><strong>Visualizations:</strong></h2>
+<p>We created several visual aids, including interaction plots and box plots, to visually represent the data. These visuals help illustrate any apparent differences or trends in how biochemical markers are influenced by gender across different age groups.</p>
+<section id="model-evaluation" class="level4">
+<h4 class="anchored" data-anchor-id="model-evaluation"><strong>Model Evaluation:</strong></h4>
+<ul>
+<li><p><strong>Analysis Outcomes:</strong> The primary outputs of our analysis were the ANOVA tables, which provided p-values and F-statistics necessary to determine the significance of the observed differences.</p></li>
+<li><p><strong>Key Results:</strong> The ANOVA results indicated significant gender differences in biochemical responses, with F-statistic values suggesting robust model fit. For instance, the F value for the interaction between gender and age was 6.652 (p &lt; 0.0001), indicating significant interaction effects.</p></li>
+</ul>
+</section>
+<section id="approaches-considered-and-rejected" class="level4">
+<h4 class="anchored" data-anchor-id="approaches-considered-and-rejected"><strong>Approaches Considered and Rejected</strong>:</h4>
+<ul>
+<li><p><strong>Logistic Regression:</strong> Initially considered for its simplicity in handling binary outcomes, we ultimately did not use logistic regression because our focus was on continuous biochemical markers.</p></li>
+<li><p><strong>Complex Multivariate Models:</strong> While potentially more robust, these models were deemed too complex for our current analysis scope, potentially complicating the interpretation without providing additional actionable insights.</p></li>
+</ul>
+</section>
+<section id="real-world-application" class="level4">
+<h4 class="anchored" data-anchor-id="real-world-application"><strong>Real-World Application:</strong></h4>
+<ul>
+<li><p><strong>Tailored Treatment Strategies:</strong> The insights derived from this analysis are crucial for developing tailored treatment strategies that consider gender differences, potentially improving outcomes for hepatitis C patients.</p></li>
+<li><p><strong>Enhanced Disease Understanding:</strong> This research enhances our understanding of how hepatitis C interacts with biological differences between genders, which can be pivotal in advancing targeted therapy approaches.</p></li>
+</ul>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Our detailed analysis highlighted important differences in how male and female hepatitis C patients respond biochemically to the infection.</p>
+<section id="references" class="level3">
+<h3 class="anchored" data-anchor-id="references"><strong>References</strong></h3>
+<ol type="1">
+<li><p><strong>UCI Machine Learning Repository: Hepatitis C Virus (HCV) Dataset</strong>. Available at: <a href="https://archive.ics.uci.edu/dataset/571/hcv+data" class="uri">https://archive.ics.uci.edu/dataset/571/hcv+data</a>. This link provides access to the dataset used in your analysis, essential for anyone looking to replicate or extend your research findings.</p></li>
+<li><p><strong>Professor’s Notes on ANOVA</strong>:<em>Unit 3 and Unit 4 Notes</em>: These documents are direct inputs from educational materials provided by your professor, covering detailed theoretical and practical applications of ANOVA, which underpin your analytical methodologies.</p></li>
+<li><p><strong>Box, G. E. P., Hunter, J. S., &amp; Hunter, W. G.</strong> (2005). <em>Statistics for Experimenters: Design, Innovation, and Discovery</em> (2nd Edition). Wiley. A foundational text on the principles of experimental design and analysis crucial for interpreting ANOVA results.</p></li>
+<li><p><strong>Montgomery, D. C.</strong> (2017). <em>Design and Analysis of Experiments</em> (9th Edition). Wiley. Provides a comprehensive resource on experimental design and analysis, supporting the methodologies used in your analysis.</p></li>
+<li><p><strong>Neter, J., Wasserman, W., &amp; Kutner, M. H.</strong> (1996). <em>Applied Linear Statistical Models</em> (4th Edition). McGraw-Hill. Covers regression and analysis of variance in detail, supporting the statistical approaches and tests employed in your research.</p></li>
+</ol>
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
