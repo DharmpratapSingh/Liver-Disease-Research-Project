@@ -4,12 +4,12 @@
     "href": "index.html",
     "title": "Liver Disease Research Project",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "Welcome to Our Liver Disease Research Project\nWe are excited to share our collaborative research on liver disease, specifically exploring how liver enzyme levels change with age and gender among individuals with hepatitis C. This project has been a significant endeavor for our team, combining our expertise in data analysis, machine learning, and healthcare. Our team, consisting of:\n\nHarkirat Singh\nShukan Nikikumar Prajapati\nDharmpratapSingh ArunodaySingh Vaghela\n\nhas worked extensively to provide insights that could contribute to better health outcomes.\nTogether, we’ve utilized advanced statistical methods, machine learning algorithms, and thorough data analysis to uncover patterns and insights that can aid in better diagnosis and treatment of liver diseases.\nWe invite you to explore the research findings, methodologies, and visualizations that we’ve compiled. This website serves as a platform to present our work and the impact it could have on understanding liver health."
   },
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "About Me",
     "section": "",
     "text": "Hello! I’m DharmpratapSingh Vaghela, a passionate Data Analytics Engineering student currently pursuing my Master of Science at George Mason University, Fairfax, VA. My academic journey has equipped me with a strong foundation in applied analytics, and my hands-on experience in the industry has further honed my skills in data analysis, software development, and predictive modeling.\nI have had the opportunity to work as a Full Stack ODOO Developer Intern at Atharva Systems, where I developed a comprehensive web application for real estate agents using a mix of HTML, JavaScript, MySQL, and the ODOO framework. This experience significantly improved my understanding of both front-end and back-end development, as well as database management.\nI’m always eager to learn and grow in the field of data science, and I’m looking forward to applying my skills to solve real-world problems. Feel free to connect with me on LinkedIn or reach out via email at dharmpratapv@gmail.com ."
   },

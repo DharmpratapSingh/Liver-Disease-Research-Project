@@ -2,10 +2,18 @@
 title: "Liver Disease Research Project"
 ---
 
-This is a Quarto website.
+**Welcome to Our Liver Disease Research Project**
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+We are excited to share our collaborative research on liver disease, specifically exploring how liver enzyme levels change with age and gender among individuals with hepatitis C. This project has been a significant endeavor for our team, combining our expertise in data analysis, machine learning, and healthcare. Our team, consisting of:
 
-```{r}
-1 + 1
-```
+1.  Harkirat Singh
+
+2.  Shukan Nikikumar Prajapati
+
+3.  DharmpratapSingh ArunodaySingh Vaghela
+
+has worked extensively to provide insights that could contribute to better health outcomes.
+
+Together, we’ve utilized advanced statistical methods, machine learning algorithms, and thorough data analysis to uncover patterns and insights that can aid in better diagnosis and treatment of liver diseases.
+
+We invite you to explore the research findings, methodologies, and visualizations that we’ve compiled. This website serves as a platform to present our work and the impact it could have on understanding liver health.

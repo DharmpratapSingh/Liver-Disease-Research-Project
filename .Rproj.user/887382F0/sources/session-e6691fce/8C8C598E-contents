@@ -8,7 +8,6 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
       - href: question1.qmd
         text: Research Question 1
       - href: question2.qmd
@@ -17,6 +16,7 @@ website:
         text: Research Question 3
       - href: question1code.qmd
         text: Code 
+      - about.qmd
       
 
 format:
