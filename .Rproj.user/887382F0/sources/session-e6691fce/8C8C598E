@@ -3,7 +3,7 @@
     "path": "~/Liver Disease Research Project/Liver Disease Research Project/_quarto.yml",
     "project_path": "_quarto.yml",
     "type": "yaml",
-    "hash": "0",
+    "hash": "3018793102",
     "contents": "",
     "dirty": false,
     "created": 1724443084631.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "17,31",
-        "scrollLine": "1"
+        "cursorPosition": "18,19",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1724444776,
+    "lastKnownWriteTime": 1724444920,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1724444776437,
+    "last_content_update": 1724444920369,
     "read_only": false,
     "read_only_alternatives": []
 }
