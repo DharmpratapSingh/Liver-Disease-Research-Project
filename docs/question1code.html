@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Liver Disease Research Project - question1code</title>
+<title>Liver Disease Research Project - Code of Analysis and Research</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,6 +67,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -124,14 +153,22 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#question-1-code" id="toc-question-1-code" class="nav-link active" data-scroll-target="#question-1-code"><strong>Question 1 Code:</strong></a></li>
+  <li><a href="#question-2-code" id="toc-question-2-code" class="nav-link" data-scroll-target="#question-2-code"><strong>Question 2 Code:</strong></a></li>
+  <li><a href="#question-3-code" id="toc-question-3-code" class="nav-link" data-scroll-target="#question-3-code"><strong>Question 3 Code:</strong></a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">question1code</h1>
+<h1 class="title">Code of Analysis and Research</h1>
 </div>
 
 
@@ -148,8 +185,144 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="question-1-code" class="level2">
+<h2 class="anchored" data-anchor-id="question-1-code"><strong>Question 1 Code:</strong></h2>
+<section id="load-necessary-libraries" class="level4">
+<h4 class="anchored" data-anchor-id="load-necessary-libraries">Load necessary libraries</h4>
+<p>library(tidyverse) library(readr) library(caret) library(randomForest)</p>
+</section>
+<section id="read-and-preprocess-the-data" class="level4">
+<h4 class="anchored" data-anchor-id="read-and-preprocess-the-data">Read and preprocess the data</h4>
+<p>data &lt;- read_csv(“hcvdat.csv”) %&gt;% mutate( AgeGroup = cut(Age, breaks = c(0, 30, 50, Inf), labels = c(“Young”, “Middle-aged”, “Senior”)), Sex = factor(Sex, levels = c(“m”, “f”)), ALB_log = log(ALB + 1), Age2 = Age^2 ) %&gt;% na.omit()</p>
+</section>
+<section id="split-the-data-into-training-and-validation-sets" class="level4">
+<h4 class="anchored" data-anchor-id="split-the-data-into-training-and-validation-sets">Split the data into training and validation sets</h4>
+<p>set.seed(123) train_indices &lt;- sample(1:nrow(data), 0.8 * nrow(data)) train_data &lt;- data[train_indices, ] validation_data &lt;- data[-train_indices, ]</p>
+</section>
+<section id="train-a-random-forest-model" class="level4">
+<h4 class="anchored" data-anchor-id="train-a-random-forest-model">Train a random forest model</h4>
+<p>fitControl &lt;- trainControl(method = “cv”, number = 10, savePredictions = “final”) rf_model &lt;- train( ALB_log ~ Sex + Age + ALB + ALP + ALT + AST + BIL + CHE + CHOL + CREA + GGT + PROT + Age2, data = train_data, method = “rf”, ntree = 500, trControl = fitControl, importance = TRUE )</p>
+</section>
+<section id="print-the-model-summary" class="level4">
+<h4 class="anchored" data-anchor-id="print-the-model-summary">Print the model summary</h4>
+<p>print(rf_model) varImpPlot(rf_model$finalModel, main = “Variable Importance”)</p>
+</section>
+<section id="make-predictions-and-calculate-performance-metrics" class="level4">
+<h4 class="anchored" data-anchor-id="make-predictions-and-calculate-performance-metrics">Make predictions and calculate performance metrics</h4>
+<p>predictions &lt;- predict(rf_model, newdata = validation_data) actuals &lt;- validation_data$ALB_log residuals &lt;- actuals - predictions RMSE &lt;- sqrt(mean(residuals^2)) R2 &lt;- cor(actuals, predictions)^2</p>
+</section>
+<section id="print-rmse-and-r-squared" class="level4">
+<h4 class="anchored" data-anchor-id="print-rmse-and-r-squared">Print RMSE and R-squared</h4>
+<p>print(paste(“RMSE:”, RMSE)) print(paste(“R-squared:”, R2))</p>
+</section>
+<section id="plot-residuals-vs-fitted-values" class="level4">
+<h4 class="anchored" data-anchor-id="plot-residuals-vs-fitted-values">Plot residuals vs fitted values</h4>
+<p>plot_data &lt;- data.frame(Fitted = predictions, Residuals = residuals) ggplot(plot_data, aes(x = Fitted, y = Residuals)) + geom_point() + geom_smooth(method = “lm”, se = TRUE, color = “blue”) + labs(title = “Residuals vs Fitted Values”, x = “Fitted Values”, y = “Residuals”)</p>
+</section>
+<section id="additional-data-manipulation-and-plotting" class="level4">
+<h4 class="anchored" data-anchor-id="additional-data-manipulation-and-plotting">Additional data manipulation and plotting</h4>
+<p>data &lt;- data %&gt;% mutate(AgeGroup = cut(Age, breaks = c(0, 30, 50, 70), labels = c(“0-30”, “31-50”, “51-70”)))</p>
+<p>age_group_means &lt;- data %&gt;% group_by(AgeGroup) %&gt;% summarise( Mean_ALP = mean(ALP, na.rm = TRUE), Mean_ALT = mean(ALT, na.rm = TRUE), Mean_AST = mean(AST, na.rm = TRUE) )</p>
+<p>age_group_means %&gt;% gather(key = “Enzyme”, value = “Mean_Level”, -AgeGroup) %&gt;% ggplot(aes(x = AgeGroup, y = Mean_Level, fill = Enzyme)) + geom_bar(stat = “identity”, position = position_dodge()) + labs(title = “Average Liver Enzyme Levels by Age Group”, x = “Age Group”, y = “Average Enzyme Level”) + theme_minimal()</p>
+</section>
+</section>
+<section id="question-2-code" class="level2">
+<h2 class="anchored" data-anchor-id="question-2-code"><strong>Question 2 Code:</strong></h2>
+<section id="load-necessary-libraries-1" class="level4">
+<h4 class="anchored" data-anchor-id="load-necessary-libraries-1">Load necessary libraries</h4>
+<p>library(tidyverse) library(car)</p>
+</section>
+<section id="read-and-preprocess-the-data-1" class="level4">
+<h4 class="anchored" data-anchor-id="read-and-preprocess-the-data-1">Read and preprocess the data</h4>
+<p>data_viable &lt;- read_csv(“hcvdat.csv”) %&gt;% mutate( Category = factor(Category, levels = c(“0=Blood Donor”, “1=Hepatitis”, “2=Fibrosis”, “3=Cirrhosis”)), Sex = factor(Sex, levels = c(“m”, “f”)), AgeGroup = cut(Age, breaks = c(0, 30, 50, 75, Inf), labels = c(“Young”, “Middle-aged”, “Senior”, “Elderly”)) )</p>
+</section>
+<section id="perform-levenes-tests-for-homogeneity-of-variances" class="level4">
+<h4 class="anchored" data-anchor-id="perform-levenes-tests-for-homogeneity-of-variances">Perform Levene’s tests for homogeneity of variances</h4>
+<p>levene_test_category &lt;- leveneTest(GGT ~ Category, data = data_viable) levene_test_sex &lt;- leveneTest(GGT ~ Sex, data = data_viable) levene_test_agegroup &lt;- leveneTest(GGT ~ AgeGroup, data = data_viable) levene_test_cat_sex &lt;- leveneTest(GGT ~ Category:Sex, data = data_viable)</p>
+</section>
+<section id="print-the-results-of-the-levenes-tests" class="level4">
+<h4 class="anchored" data-anchor-id="print-the-results-of-the-levenes-tests">Print the results of the Levene’s tests</h4>
+<p>print(levene_test_category) print(levene_test_sex) print(levene_test_agegroup) print(levene_test_cat_sex)</p>
+</section>
+<section id="log-transform-ggt-and-add-to-the-dataset" class="level4">
+<h4 class="anchored" data-anchor-id="log-transform-ggt-and-add-to-the-dataset">Log-transform GGT and add to the dataset</h4>
+<p>data_viable &lt;- data_viable %&gt;% mutate(log_GGT = log(GGT + 1))</p>
+</section>
+<section id="perform-anova-on-log-transformed-ggt-with-interaction-terms" class="level4">
+<h4 class="anchored" data-anchor-id="perform-anova-on-log-transformed-ggt-with-interaction-terms">Perform ANOVA on log-transformed GGT with interaction terms</h4>
+<p>anova_log_ggt &lt;- aov(log_GGT ~ Category * Sex * AgeGroup, data = data_viable) print(summary(anova_log_ggt))</p>
+</section>
+<section id="fit-a-simple-linear-model" class="level4">
+<h4 class="anchored" data-anchor-id="fit-a-simple-linear-model">Fit a simple linear model</h4>
+<p>simple_model &lt;- lm(log_GGT ~ Category + Sex + AgeGroup, data = data_viable) print(summary(simple_model))</p>
+</section>
+<section id="create-a-plot-showing-interactions" class="level4">
+<h4 class="anchored" data-anchor-id="create-a-plot-showing-interactions">Create a plot showing interactions</h4>
+<p>p &lt;- ggplot(data_viable, aes(x = Category, y = log_GGT, color = Sex, shape = AgeGroup)) + geom_point(alpha = 0.6) + geom_smooth(method = “lm”, se = FALSE, fullrange = TRUE) + facet_wrap(~AgeGroup) + labs( title = “Interaction of Category, Sex, and Age on log(GGT) Levels”, y = “Log of Gamma-Glutamyl Transferase”, x = “Category” ) + scale_color_brewer(palette = “Set1”) + theme_minimal()</p>
+</section>
+<section id="print-the-plot" class="level4">
+<h4 class="anchored" data-anchor-id="print-the-plot">Print the plot</h4>
+<p>print(p)</p>
+</section>
+</section>
+<section id="question-3-code" class="level2">
+<h2 class="anchored" data-anchor-id="question-3-code"><strong>Question 3 Code:</strong></h2>
+<section id="load-necessary-libraries-2" class="level4">
+<h4 class="anchored" data-anchor-id="load-necessary-libraries-2">Load necessary libraries</h4>
+<p>library(tidyverse) library(caret) library(e1071) library(nnet) library(pROC) library(randomForest)</p>
+</section>
+<section id="read-and-preprocess-the-data-2" class="level4">
+<h4 class="anchored" data-anchor-id="read-and-preprocess-the-data-2">Read and preprocess the data</h4>
+<p>data &lt;- read_csv(“hcvdat.csv”) %&gt;% mutate( Category = factor(Category, levels = c(“0=Blood Donor”, “1=Hepatitis”, “2=Fibrosis”, “3=Cirrhosis”), labels = c(“Blood_Donor”, “Hepatitis”, “Fibrosis”, “Cirrhosis”)), Sex = factor(Sex, levels = c(“m”, “f”)), log_ALB = log(ALB + 1), log_BIL = log(BIL + 1) ) %&gt;% na.omit()</p>
+</section>
+<section id="split-the-data-into-training-and-test-sets" class="level4">
+<h4 class="anchored" data-anchor-id="split-the-data-into-training-and-test-sets">Split the data into training and test sets</h4>
+<p>set.seed(123) training_indices &lt;- createDataPartition(data$Category, p = 0.8, list = FALSE) training_data &lt;- data[training_indices, ] test_data &lt;- data[-training_indices, ]</p>
+</section>
+<section id="set-up-cross-validation" class="level4">
+<h4 class="anchored" data-anchor-id="set-up-cross-validation">Set up cross-validation</h4>
+<p>fitControl &lt;- trainControl(method = “cv”, number = 10, summaryFunction = multiClassSummary, classProbs = TRUE, savePredictions = “final”)</p>
+</section>
+<section id="train-a-random-forest-model-1" class="level4">
+<h4 class="anchored" data-anchor-id="train-a-random-forest-model-1">Train a Random Forest model</h4>
+<p>model_rf &lt;- train(Category ~ log_ALB + log_BIL + AST + ALT + GGT + Sex, data = training_data, method = “rf”, trControl = fitControl, metric = “Accuracy”)</p>
+</section>
+<section id="train-an-svm-model" class="level4">
+<h4 class="anchored" data-anchor-id="train-an-svm-model">Train an SVM model</h4>
+<p>model_svm &lt;- train(Category ~ log_ALB + log_BIL + AST + ALT + GGT + Sex, data = training_data, method = “svmRadial”, trControl = fitControl, metric = “Accuracy”)</p>
+</section>
+<section id="make-predictions-with-random-forest" class="level4">
+<h4 class="anchored" data-anchor-id="make-predictions-with-random-forest">Make predictions with Random Forest</h4>
+<p>predictions_rf &lt;- predict(model_rf, newdata = test_data) confusionMatrix_rf &lt;- confusionMatrix(predictions_rf, test_data$Category)</p>
+</section>
+<section id="calculate-roc-curves-and-aucs-for-random-forest" class="level4">
+<h4 class="anchored" data-anchor-id="calculate-roc-curves-and-aucs-for-random-forest">Calculate ROC curves and AUCs for Random Forest</h4>
+<p>probabilities_rf &lt;- predict(model_rf, newdata = test_data, type = “prob”) roc_results_rf &lt;- lapply(levels(test_data<span class="math inline">\(Category), function(class) roc(response = test_data\)</span>Category, predictor = probabilities_rf[, class])) aucs_rf &lt;- sapply(roc_results_rf, auc)</p>
+</section>
+<section id="make-predictions-with-svm" class="level4">
+<h4 class="anchored" data-anchor-id="make-predictions-with-svm">Make predictions with SVM</h4>
+<p>probabilities_svm &lt;- predict(model_svm, newdata = test_data, type = “prob”) roc_results_svm &lt;- lapply(levels(test_data<span class="math inline">\(Category), function(class) roc(response = test_data\)</span>Category, predictor = probabilities_svm[, class])) aucs_svm &lt;- sapply(roc_results_svm, auc)</p>
+</section>
+<section id="print-aucs" class="level4">
+<h4 class="anchored" data-anchor-id="print-aucs">Print AUCs</h4>
+<p>print(list(RandomForest_AUCs = aucs_rf, SVM_AUCs = aucs_svm))</p>
+</section>
+<section id="confusion-matrix-heatmap" class="level4">
+<h4 class="anchored" data-anchor-id="confusion-matrix-heatmap">Confusion matrix heatmap</h4>
+<p>confusionMatrix_rf &lt;- confusionMatrix(predictions_rf, test_data<span class="math inline">\(Category)
+heatmap(as.matrix(confusionMatrix_rf\)</span>table), Rowv = NA, Colv = NA, scale = “column”, margins = c(5,5), xlab = “Predicted”, ylab = “Actual”, main = “Confusion Matrix Heatmap”)</p>
+</section>
+<section id="plot-roc-curves" class="level4">
+<h4 class="anchored" data-anchor-id="plot-roc-curves">Plot ROC curves</h4>
+<p>plot(roc_results_rf[[1]], col = “red”, main = “ROC Curves for Disease Categories”) for (i in 2:length(roc_results_rf)) { plot(roc_results_rf[[i]], col = i, add = TRUE) } legend(“bottomright”, legend = levels(test_data$Category), col = 1:length(roc_results_rf), lwd = 2)</p>
+</section>
+<section id="variable-importance-plot-for-random-forest" class="level4">
+<h4 class="anchored" data-anchor-id="variable-importance-plot-for-random-forest">Variable Importance Plot for Random Forest</h4>
+<p>varImpPlot(model_rf$finalModel, main = “Variable Importance in Predicting Liver Disease Severity”)</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
