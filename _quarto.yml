@@ -9,6 +9,19 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      - href: question1.qmd
+        text: Research Question 1
+      - href: question2.qmd
+        text: Research Question 2
+      - href: question3.qmd
+        text: Research Question 3
+      - href: question1code.qmd
+        text: Question 1 Code
+      - href: question2code.qmd
+        text: Question 2 Code
+      - href: question3code.qmd
+        text: Question 3 Code
+      
 
 format:
   html:
