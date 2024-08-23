@@ -1,14 +1,14 @@
 {
-    "id": "D7CFB7D9",
-    "path": "~/Liver Disease Research Project/Liver Disease Research Project/question1code.qmd",
-    "project_path": "question1code.qmd",
+    "id": "5EAF9CF5",
+    "path": "~/Liver Disease Research Project/Liver Disease Research Project/question1.qmd",
+    "project_path": "question1.qmd",
     "type": "quarto_markdown",
-    "hash": "0",
+    "hash": "4014723124",
     "contents": "",
     "dirty": false,
-    "created": 1724448194478.0,
+    "created": 1724448982663.0,
     "source_on_save": false,
-    "relative_order": 6,
+    "relative_order": 3,
     "properties": {
         "rmdVisualMode": "true",
         "rmdVisualWrapConfigured": "true",
@@ -17,16 +17,16 @@
         "Source": "Source",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "cursorPosition": "4,0",
+        "cursorPosition": "37,0",
         "scrollLine": "0",
-        "rmdVisualModeLocation": "66:0"
+        "rmdVisualModeLocation": "1772:904"
     },
     "folds": "",
-    "lastKnownWriteTime": 1724448796,
+    "lastKnownWriteTime": 1724449666,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1724448796646,
+    "last_content_update": 1724449666725,
     "read_only": false,
     "read_only_alternatives": []
 }
