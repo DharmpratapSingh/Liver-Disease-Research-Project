@@ -1,12 +1,12 @@
 {
-    "id": "8284C4D7",
-    "path": "~/Liver Disease Research Project/Liver Disease Research Project/question2.qmd",
-    "project_path": "question2.qmd",
+    "id": "AFD91ECF",
+    "path": "~/Liver Disease Research Project/Liver Disease Research Project/question3.qmd",
+    "project_path": "question3.qmd",
     "type": "quarto_markdown",
     "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1724446537816.0,
+    "created": 1724447304022.0,
     "source_on_save": false,
     "relative_order": 5,
     "properties": {
@@ -17,16 +17,17 @@
         "Source": "Source",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "cursorPosition": "40,0",
+        "cursorPosition": "14,0",
         "scrollLine": "0",
-        "rmdVisualModeLocation": "99:0"
+        "rmdVisualModeLocation": "730:280",
+        "ignored_words": "Multinomial,multinomial,heatmap,Heatmap,foundational,analytical\n"
     },
     "folds": "",
-    "lastKnownWriteTime": 1724446896,
+    "lastKnownWriteTime": 1724447776,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1724446896595,
+    "last_content_update": 1724447776365,
     "read_only": false,
     "read_only_alternatives": []
 }
